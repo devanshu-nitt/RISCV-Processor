@@ -1,7 +1,8 @@
 module ex_stage #(	parameter WIDTH = 8,
 			parameter ALUCTRL = 4,
 			parameter FWD = 2,
-			parameter PC = 8)(
+			parameter PC = 8,
+			parameter REG_ADDR = 5)(
 	
 	input wire	clk,
 	input wire	reset,
@@ -18,7 +19,7 @@ module ex_stage #(	parameter WIDTH = 8,
 	input wire			mem_to_reg_in,
 	input wire			reg_write_in,
 	input wire			branch_in,
-	input wire			rd_in,
+	input wire	[REG_ADDR-1:0]	rd_in,
 
 	//Forwarding Inputs
 	input wire	[FWD-1:0]	fwd_a,
@@ -28,7 +29,7 @@ module ex_stage #(	parameter WIDTH = 8,
 
 	output reg	[WIDTH-1:0]	alu_result_out,
 	output reg			zero_out,
-	output reg			pc_out,
+	output reg	[PC-1:0]	pc_out,
 	output reg	[WIDTH-1:0]	src2_raw_out,
 
 	//Not used in EX (here).
@@ -37,7 +38,7 @@ module ex_stage #(	parameter WIDTH = 8,
 	output reg			mem_to_reg_out,
 	output reg			reg_write_out,
 	output reg			branch_out,
-	output reg			rd_out
+	output reg	[REG_ADDR-1:0]	rd_out
 
 
 
@@ -45,15 +46,19 @@ module ex_stage #(	parameter WIDTH = 8,
 	wire	[PC-1:0]	pc_branch;
 	wire	[WIDTH-1:0]	src1, src2_raw, src2, alu_result;
 	wire			zero;
+	
+	wire	[PC-1:0]	imm_internal;
+
+	assign	imm_internal = imm;
 
 	assign	src1 = (fwd_a == 2'b10)? ex_mem_result : (fwd_a == 2'b01)? mem_wb_result : op1;
 	assign	src2_raw = (fwd_b == 2'b10)? ex_mem_result : (fwd_b == 2'b01)? mem_wb_result : op2;
 
-	assign src2 = (alu_src)? imm : src2_raw;
+	assign src2 = (alu_src)? imm_internal : src2_raw;
 
-	assign pc_branch = pc_in + imm;
+	assign pc_branch = pc_in + imm_internal;
 
-	alu ALU(.a(src1), .b(src2), .alu_ctrl(alu_ctrl), .alu_result(alu_result), .zero(zero));
+	alu ALU(.a(src1), .b(src2), .alu_ctrl(alu_ctrl), .result(alu_result), .zero(zero));
 
 	always @(posedge clk) begin
 		if(reset) begin
