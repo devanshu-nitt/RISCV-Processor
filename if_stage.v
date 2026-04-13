@@ -3,8 +3,11 @@ module if_stage #(	parameter PC =8,
 	
 	input	wire	clk,
 	input	wire	reset,
-	inout	wire	pc_src,
+	input	wire	pc_src,
+	input	wire	stall,
 	input	wire	[PC-1:0]	pc_jump,
+
+	input 	wire			flush,
 	
 	output	reg	[INST-1:0]	instruction_out,
 	output	reg	[PC-1:0]	pc_out
@@ -24,11 +27,11 @@ module if_stage #(	parameter PC =8,
 	instruction_memory inst_mm (.addr(pc_current), .instruction(instruction));
 	
 	always @(posedge clk) begin
-		if(reset) begin
+		if(reset || flush) begin
 			pc_out <=0;
 			instruction_out <=0;
 		end
-		else begin
+		else if(!stall) begin
 			pc_out <= pc_current;
 			instruction_out <= instruction;
 		end
