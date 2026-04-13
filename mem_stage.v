@@ -6,9 +6,9 @@ module mem_stage #(	parameter ADDR = 8,
 	input wire	clk,
 	input wire	reset,
 	
-	input wire	[ADDR-1:0]	mem_read_in,
-	input wire	[ADDR-1:0]	alu_result_in,
-	input wire	[ADDR-1:0]	mem_write_in,
+	input wire			mem_read_in,
+	input wire	[WIDTH-1:0]	alu_result_in,
+	input wire			mem_write_in,
 	input wire	[WIDTH-1:0]	write_data_in,
 
 	input wire	[REG_ADDR-1:0]	rd_in,
@@ -19,7 +19,7 @@ module mem_stage #(	parameter ADDR = 8,
 	input wire			zero_in,
 
 	output reg	[WIDTH-1:0]	read_data_out,
-	output reg	[ADDR-1:0]	alu_result_out,
+	output reg	[WIDTH-1:0]	alu_result_out,
 	output reg	[REG_ADDR-1:0]	rd_out,
 
 	output reg			mem_to_reg_out,
@@ -38,6 +38,7 @@ module mem_stage #(	parameter ADDR = 8,
 
 	always @(posedge clk) begin
 		if(reset) begin
+			alu_result_out <=0;
 			read_data_out <= 0;
 			alu_result_out <= 0;
 			rd_out <= 0;
