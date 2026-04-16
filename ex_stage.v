@@ -27,6 +27,8 @@ module ex_stage #(	parameter WIDTH = 8,
 	input wire	[WIDTH-1:0]	ex_mem_result,
 	input wire	[WIDTH-1:0]	mem_wb_result,
 
+	input wire			flush,
+
 	output reg	[WIDTH-1:0]	alu_result_out,
 	output reg			zero_out,
 	output reg	[PC-1:0]	pc_out,
@@ -39,6 +41,8 @@ module ex_stage #(	parameter WIDTH = 8,
 	output reg			reg_write_out,
 	output reg			branch_out,
 	output reg	[REG_ADDR-1:0]	rd_out
+
+	//output wire	[WIDTH-1:0]	alu_result_pre
 
 
 
@@ -60,8 +64,11 @@ module ex_stage #(	parameter WIDTH = 8,
 
 	alu ALU(.a(src1), .b(src2), .alu_ctrl(alu_ctrl), .result(alu_result), .zero(zero));
 
+	// For forwarding to ID for Jump.
+	//assign	alu_result_pre = alu_result;
+
 	always @(posedge clk) begin
-		if(reset) begin
+		if(reset || flush) begin
 			alu_result_out <= 0;
 			zero_out <= 0;
 			pc_out <= 0;
