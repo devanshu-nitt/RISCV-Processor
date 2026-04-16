@@ -9,14 +9,14 @@ module register_file #(	parameter DEPTH = 32,
 	input wire	[ADDR-1:0]	rs2,
 	input wire	[ADDR-1:0]	write_addr,
 	input wire	[WIDTH-1:0]	write_data,
-	output reg	[WIDTH-1:0]	read_data1,
-	output reg	[WIDTH-1:0]	read_data2
+	output wire	[WIDTH-1:0]	read_data1,
+	output wire	[WIDTH-1:0]	read_data2
 );
 	reg [WIDTH-1:0]	registers	[DEPTH-1:0];
 	integer i;
 	always @(posedge clk) begin
 		if(reset) begin
-			for(i=0; i< DEPTH-1; i=i+1) begin
+			for(i=0; i< DEPTH; i=i+1) begin
 				registers[i] <= 0;
 			end
 		end
@@ -26,6 +26,7 @@ module register_file #(	parameter DEPTH = 32,
 			end
 		end
 	end
-	assign read_data1 = registers[rs1];
-	assign read_data2 = registers[rs2];
+	assign read_data1 = (reg_write && (write_addr !=0) && write_addr == rs1) ? write_data : registers[rs1] ;
+	assign read_data2 = (reg_write && (write_addr !=0) && write_addr == rs2) ? write_data : registers[rs2] ;
+	
 endmodule
