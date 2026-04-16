@@ -27,6 +27,8 @@ module mem_stage #(	parameter ADDR = 8,
 	output wire			pc_src,
 	output wire	[PC-1:0]	pc_branch_out
 
+	//output wire	[WIDTH-1:0]	alu_result_pre
+
 );
 
 	wire	[WIDTH-1:0]	read_data;
@@ -35,6 +37,9 @@ module mem_stage #(	parameter ADDR = 8,
 
 	assign pc_src = branch_in & zero_in;
 	assign pc_branch_out = pc_branch_in;
+
+	// For forwarding to ID for Jump.
+	//assign	alu_result_pre = alu_result_in;
 
 	always @(posedge clk) begin
 		if(reset) begin
