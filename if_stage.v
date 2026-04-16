@@ -22,7 +22,7 @@ module if_stage #(	parameter PC =8,
 	wire	[PC-1:0]	pc_in;
 	assign	pc_in = (pc_src) ? pc_jump: pc_next; //whether to jump or move to next pc.
 
-	program_counter pc(.clk(clk), .reset(reset), .pc_in(pc_in), .pc_out(pc_current));
+	program_counter pc(.clk(clk), .reset(reset), .pc_in(pc_in), .pc_out(pc_current), .stall(stall));
 	
 	instruction_memory inst_mm (.addr(pc_current), .instruction(instruction));
 	
