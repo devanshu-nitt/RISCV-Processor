@@ -1,0 +1,263 @@
+couldn't open "transcript": permission denied
+# Reading pref.tcl
+project open C:/Users/devan/Desktop/Project/RISCV_Pipelined/RISCV_Pipelined
+# Loading project RISCV_Pipelined
+# Compile of mux_2_to_1.v was successful.
+# Compile of program_counter.v was successful.
+# Compile of alu.v was successful.
+# Compile of register_file.v was successful.
+# Compile of instruction_memory.v was successful.
+# Compile of data_memory.v was successful.
+# Compile of control_unit.v was successful.
+# Compile of alu_control.v was successful.
+# Compile of imm_gen.v was successful.
+# Compile of if_stage.v was successful.
+# Compile of id_stage.v was successful.
+# Compile of ex_stage.v was successful.
+# Compile of wb_stage.v was successful.
+# Compile of forwarding_unit.v was successful.
+# Compile of mem_stage.v was successful.
+# Compile of RISCV.v was successful.
+# Compile of testbench.v was successful.
+# Compile of hazard_detection_unit.v was successful.
+# 18 compiles, 0 failed with no errors.
+vsim -gui work.riscv_tb
+# vsim -gui work.riscv_tb 
+# Start time: 18:53:58 on Apr 16,2026
+# Loading work.riscv_tb
+# Loading work.riscv_top
+# Loading work.if_stage
+# Loading work.program_counter
+# Loading work.instruction_memory
+# Loading work.id_stage
+# Loading work.control_unit
+# Loading work.register_file
+# Loading work.imm_gen
+# Loading work.alu_control
+# Loading work.ex_stage
+# Loading work.alu
+# Loading work.mem_stage
+# Loading work.data_memory
+# Loading work.wb_stage
+# Loading work.forwarding_unit
+# Loading work.hazard_detection_unit
+add wave -position insertpoint sim:/riscv_tb/*
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: devan  Hostname: DEVANSHU  ProcessID: 2772
+#           Attempting to use alternate WLF file "./wlftfwavdc".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftfwavdc
+# =============================================================
+#  RISC-V 8-bit Pipeline Testbench
+# =============================================================
+# [3] Reset deasserted ? pipeline starting
+# CYC=  4 | PC= 0 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=0 | pc_src=0
+# CYC=  5 | PC= 1 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC=  6 | PC= 2 | INST=00100083 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC=  7 | PC= 3 | INST=00200103 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC=  8 | PC= 4 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  1 zero=0 | pc_src=0
+# CYC=  9 | PC= 5 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  2 zero=0 | pc_src=0
+# CYC= 10 | PC= 6 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 11 | PC= 7 | INST=002081b3 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 12 | PC= 8 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 13 | PC= 9 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  8 zero=0 | pc_src=0
+# 
+# ??? Section 1: Setup Loads ?????????????????????????????????
+#   pass  [LD_x1     ]  x1 = 8'd5
+#   pass  [LD_x2     ]  x2 = 8'd3
+# CYC= 14 | PC=10 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 15 | PC=11 | INST=40208233 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 16 | PC=12 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 17 | PC=13 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  2 zero=0 | pc_src=0
+# CYC= 18 | PC=14 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 19 | PC=15 | INST=0020f2b3 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 20 | PC=16 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 21 | PC=17 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  1 zero=0 | pc_src=0
+# CYC= 22 | PC=18 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 23 | PC=19 | INST=0020e333 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 24 | PC=20 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 25 | PC=21 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  7 zero=0 | pc_src=0
+# CYC= 26 | PC=22 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 27 | PC=23 | INST=0020c3b3 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 28 | PC=24 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 29 | PC=25 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  6 zero=0 | pc_src=0
+# CYC= 30 | PC=26 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 31 | PC=27 | INST=00208433 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 32 | PC=28 | INST=001404b3 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 33 | PC=29 | INST=00000000 | fwd_a=10 fwd_b=00 | alu=  8 zero=0 | pc_src=0
+# 
+# ??? Section 2: R-Type Battery ??????????????????????????????
+#   pass  [ADD_x3    ]  x3 = 8'd8
+#   pass  [SUB_x4    ]  x4 = 8'd2
+#   pass  [AND_x5    ]  x5 = 8'd1
+#   pass  [OR_x6     ]  x6 = 8'd7
+#   pass  [XOR_x7    ]  x7 = 8'd6
+# CYC= 34 | PC=30 | INST=00000000 | fwd_a=00 fwd_b=00 | alu= 13 zero=0 | pc_src=0
+# CYC= 35 | PC=31 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 36 | PC=32 | INST=00208533 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 37 | PC=33 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 38 | PC=34 | INST=002505b3 | fwd_a=00 fwd_b=00 | alu=  8 zero=0 | pc_src=0
+# 
+# ??? Section 3: EX/MEM Forwarding (fwd_a = 2'b10) ??????????
+#   pass  [FWD_prod  ]  x8 = 8'd8
+#   pass  [FWD_EX_MEM]  x9 = 8'd13
+# CYC= 39 | PC=35 | INST=00000000 | fwd_a=01 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 40 | PC=36 | INST=00000000 | fwd_a=00 fwd_b=00 | alu= 11 zero=0 | pc_src=0
+# CYC= 41 | PC=37 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 42 | PC=38 | INST=00208633 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 43 | PC=39 | INST=00c606b3 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# 
+# ??? Section 4: MEM/WB Forwarding (fwd_a = 2'b01) ??????????
+#   pass  [FWD_prod2 ]  x10 = 8'd8
+#   pass  [FWD_MEMWB ]  x11 = 8'd11
+# CYC= 44 | PC=40 | INST=00000000 | fwd_a=10 fwd_b=10 | alu=  8 zero=0 | pc_src=0
+# CYC= 45 | PC=41 | INST=00000000 | fwd_a=00 fwd_b=00 | alu= 16 zero=0 | pc_src=0
+# CYC= 46 | PC=42 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 47 | PC=43 | INST=00300703 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 48 | PC=44 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# 
+# ??? Section 5: Double Forwarding (fwd_a=fwd_b = 2'b10) ????
+#   pass  [DFWD_prod ]  x12 = 8'd8
+#   pass  [DFWD_both ]  x13 = 8'd16
+# CYC= 49 | PC=45 | INST=001707b3 | fwd_a=00 fwd_b=00 | alu=  3 zero=0 | pc_src=0
+# CYC= 50 | PC=46 | INST=00000000 | fwd_a=01 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 51 | PC=47 | INST=00000000 | fwd_a=00 fwd_b=00 | alu= 15 zero=0 | pc_src=0
+# CYC= 52 | PC=48 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 53 | PC=49 | INST=003002a3 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 54 | PC=50 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# 
+# ??? Section 6: Load-Use Hazard (NOP stall + fwd_a=2'b01) ??
+#   pass  [LD_USE_ld ]  x14 = 8'd10
+#   pass  [LD_USE_add]  x15 = 8'd15
+# CYC= 55 | PC=51 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  5 zero=0 | pc_src=0
+# CYC= 56 | PC=52 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 57 | PC=53 | INST=00500803 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 58 | PC=54 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 59 | PC=55 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  5 zero=0 | pc_src=0
+# CYC= 60 | PC=56 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 61 | PC=57 | INST=00108263 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 62 | PC=58 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# 
+# ??? Section 7: Store + Load-Back ???????????????????????????
+#   pass  [SD_mem5   ]  mem[5] = 8'd8
+#   pass  [LD_back   ]  x16 = 8'd8
+# CYC= 63 | PC=59 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=1
+# CYC= 64 | PC=60 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=0 | pc_src=0
+# CYC= 65 | PC=61 | INST=002088b3 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 66 | PC=62 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 67 | PC=63 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  8 zero=0 | pc_src=0
+# CYC= 68 | PC=64 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 69 | PC=65 | INST=00208263 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 70 | PC=66 | INST=00208933 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# 
+# ??? Section 8: BEQ Taken ???????????????????????????????????
+#   pass  [BEQ_taken ]  x17 = 8'd8
+# CYC= 71 | PC=67 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  2 zero=0 | pc_src=0
+# CYC= 72 | PC=68 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  8 zero=0 | pc_src=0
+# CYC= 73 | PC=69 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 74 | PC=70 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 75 | PC=71 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 76 | PC=72 | INST=00108263 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 77 | PC=73 | INST=00208a33 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 78 | PC=74 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=1
+# 
+# ??? Section 9: BEQ Not Taken ???????????????????????????????
+#   pass  [BEQ_notakn]  x18 = 8'd8
+# CYC= 79 | PC=75 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=0 | pc_src=0
+# CYC= 80 | PC=76 | INST=002089b3 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 81 | PC=77 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 82 | PC=78 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  8 zero=0 | pc_src=0
+# CYC= 83 | PC=79 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 84 | PC=80 | INST=00208ab3 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 85 | PC=81 | INST=003a8263 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 86 | PC=81 | INST=003a8263 | fwd_a=00 fwd_b=00 | alu=  8 zero=0 | pc_src=0
+# CYC= 87 | PC=82 | INST=00208b33 | fwd_a=01 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 88 | PC=83 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=1
+# CYC= 89 | PC=84 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=0 | pc_src=0
+# CYC= 90 | PC=85 | INST=00208bb3 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# 
+# ??? Section 10: Single-slot flush (early branch in ID) ?????
+#   pass  [FLUSH_kill]  x20 = 8'd0
+#   pass  [FLUSH_tgt ]  x19 = 8'd8
+# CYC= 91 | PC=86 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 92 | PC=87 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  8 zero=0 | pc_src=0
+# CYC= 93 | PC=88 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 94 | PC=89 | INST=00208c33 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 95 | PC=90 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 96 | PC=91 | INST=003c0263 | fwd_a=00 fwd_b=00 | alu=  8 zero=0 | pc_src=0
+# CYC= 97 | PC=92 | INST=00208cb3 | fwd_a=01 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC= 98 | PC=93 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=1
+# CYC= 99 | PC=94 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=0 | pc_src=0
+# CYC=100 | PC=95 | INST=00208d33 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# 
+# ??? Section 11: Branch comparator EX/MEM forward ???????????
+#   pass  [EXFWD_kill]  x22 = 8'd0
+#   pass  [EXFWD_prod]  x21 = 8'd8
+#   pass  [EXFWD_tgt ]  x23 = 8'd8
+# CYC=101 | PC=96 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC=102 | PC=97 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  8 zero=0 | pc_src=0
+# CYC=103 | PC=98 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC=104 | PC=99 | INST=00100d83 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC=105 | PC=100 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC=106 | PC=101 | INST=001d8263 | fwd_a=00 fwd_b=00 | alu=  1 zero=0 | pc_src=0
+# CYC=107 | PC=102 | INST=00208e33 | fwd_a=01 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC=108 | PC=103 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=1
+# CYC=109 | PC=104 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=0 | pc_src=0
+# CYC=110 | PC=105 | INST=00208eb3 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC=111 | PC=106 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC=112 | PC=107 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  8 zero=0 | pc_src=0
+# 
+# ??? Section 12: Branch comparator MEM/WB forward ???????????
+#   pass  [MWFWD_kill]  x25 = 8'd0
+#   pass  [MWFWD_prod]  x24 = 8'd8
+#   pass  [MWFWD_tgt ]  x26 = 8'd8
+# CYC=113 | PC=108 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC=114 | PC=109 | INST=00200f03 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC=115 | PC=110 | INST=001f0fb3 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC=116 | PC=110 | INST=001f0fb3 | fwd_a=00 fwd_b=00 | alu=  2 zero=0 | pc_src=0
+# CYC=117 | PC=111 | INST=00000000 | fwd_a=01 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC=118 | PC=112 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  8 zero=0 | pc_src=0
+# CYC=119 | PC=113 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC=120 | PC=114 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC=121 | PC=115 | INST=00000000 | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC=122 | PC=116 | INST=xxxxxxxx | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC=123 | PC=117 | INST=xxxxxxxx | fwd_a=00 fwd_b=00 | alu=  0 zero=1 | pc_src=0
+# CYC=124 | PC=118 | INST=xxxxxxxx | fwd_a=00 fwd_b=00 | alu=  x zero=x | pc_src=0
+# CYC=125 | PC=119 | INST=xxxxxxxx | fwd_a=00 fwd_b=00 | alu=  x zero=x | pc_src=0
+# CYC=126 | PC=120 | INST=xxxxxxxx | fwd_a=00 fwd_b=00 | alu=  x zero=x | pc_src=0
+# 
+# ??? Section 13: Load-before-branch (1 NOP + 1 flush) ???????
+#   pass  [LDB_load  ]  x27 = 8'd5
+#   pass  [LDB_kill  ]  x28 = 8'd0
+#   pass  [LDB_tgt   ]  x29 = 8'd8
+# CYC=127 | PC=121 | INST=xxxxxxxx | fwd_a=00 fwd_b=00 | alu=  x zero=x | pc_src=0
+# CYC=128 | PC=122 | INST=xxxxxxxx | fwd_a=00 fwd_b=00 | alu=  x zero=x | pc_src=0
+# CYC=129 | PC=123 | INST=xxxxxxxx | fwd_a=00 fwd_b=00 | alu=  x zero=x | pc_src=0
+# CYC=130 | PC=124 | INST=xxxxxxxx | fwd_a=00 fwd_b=00 | alu=  x zero=x | pc_src=0
+# CYC=131 | PC=125 | INST=xxxxxxxx | fwd_a=00 fwd_b=00 | alu=  x zero=x | pc_src=0
+# CYC=132 | PC=126 | INST=xxxxxxxx | fwd_a=00 fwd_b=00 | alu=  x zero=x | pc_src=0
+# CYC=133 | PC=127 | INST=xxxxxxxx | fwd_a=00 fwd_b=00 | alu=  x zero=x | pc_src=0
+# CYC=134 | PC=128 | INST=xxxxxxxx | fwd_a=00 fwd_b=00 | alu=  x zero=x | pc_src=0
+# CYC=135 | PC=129 | INST=xxxxxxxx | fwd_a=00 fwd_b=00 | alu=  x zero=x | pc_src=0
+# CYC=136 | PC=130 | INST=xxxxxxxx | fwd_a=00 fwd_b=00 | alu=  x zero=x | pc_src=0
+# CYC=137 | PC=131 | INST=xxxxxxxx | fwd_a=00 fwd_b=00 | alu=  x zero=x | pc_src=0
+# CYC=138 | PC=132 | INST=xxxxxxxx | fwd_a=00 fwd_b=00 | alu=  x zero=x | pc_src=0
+# CYC=139 | PC=133 | INST=xxxxxxxx | fwd_a=00 fwd_b=00 | alu=  x zero=x | pc_src=0
+# CYC=140 | PC=134 | INST=xxxxxxxx | fwd_a=00 fwd_b=00 | alu=  x zero=x | pc_src=0
+# 
+# ??? Section 14: Auto HDU load-use stall (no NOP) ???????????
+#   pass  [HDU_load  ]  x30 = 8'd3
+#   pass  [HDU_add   ]  x31 = 8'd8
+# CYC=141 | PC=135 | INST=xxxxxxxx | fwd_a=00 fwd_b=00 | alu=  x zero=x | pc_src=0
+# CYC=142 | PC=136 | INST=xxxxxxxx | fwd_a=00 fwd_b=00 | alu=  x zero=x | pc_src=0
+# CYC=143 | PC=137 | INST=xxxxxxxx | fwd_a=00 fwd_b=00 | alu=  x zero=x | pc_src=0
+# CYC=144 | PC=138 | INST=xxxxxxxx | fwd_a=00 fwd_b=00 | alu=  x zero=x | pc_src=0
+# CYC=145 | PC=139 | INST=xxxxxxxx | fwd_a=00 fwd_b=00 | alu=  x zero=x | pc_src=0
+# 
+# =============================================================
+#  RESULTS: 32 passed,  0 failed
+# =============================================================
+# 
+#  ALL TESTS PASSED
+# Break in Module riscv_tb at C:/Users/devan/Desktop/Project/RISCV_Pipelined/testbench.v line 793
+# Printing not supported.
