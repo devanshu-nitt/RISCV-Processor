@@ -60,8 +60,12 @@ module riscv_top #(
 	// ????????????????????????????????????????????????????????????????????????
 
 	// New wire for Jump Flush
-	wire	branch_taken;
-	wire	[PC-1:0]	pc_branch_target;
+	wire	id_branch_wire;
+	wire	[REG_ADDR-1:0]	id_rs1_wire;
+	wire	[REG_ADDR-1:0]	id_rs2_wire;
+	//wire	[PC-1:0]	pc_branch_target;
+	//wire	[WIDTH-1:0]	alu_result_pre_ex;
+	//wire	[WIDTH-1:0]	alu_result_pre_mem;
 
     	// Stage instantiations
     	if_stage #(
@@ -69,12 +73,12 @@ module riscv_top #(
     	) IF (
         	.clk          (clk),
         	.reset        (reset),
-        	.pc_src       (branch_taken),       // input  ? fixed from inout
-        	.pc_jump      (pc_branch_target),
+        	.pc_src       (pc_src),       // input  ? fixed from inout
+        	.pc_jump      (pc_branch),
         	.instruction_out (if_instruction),
         	.pc_out       (if_pc),
 		.stall		(stall),
-		.flush		(branch_taken) 
+		.flush		(pc_src) 
     	);
 
     	id_stage #(
@@ -108,14 +112,19 @@ module riscv_top #(
 
 		.stall		(stall), 
 
-		.branch_taken	(branch_taken),
-		.pc_branch_target	(pc_branch_target),
+		.branch_wire	(id_branch_wire),
+		.rs1_pre	(id_rs1_wire),
+		.rs2_pre	(id_rs2_wire),
+
+		.flush		(pc_src)
+		//.pc_branch_target	(pc_branch_target),
 	
-		.fwd_ex_result(ex_alu_result),
-		.fwd_mem_result(ex_alu_result),
-		.rd_ex(ex_rd),
-		.reg_write_ex(ex_reg_write),
-		.reg_write_mem_fwd(mem_reg_write)
+		//.fwd_ex_result(alu_result_pre_ex),
+		//.fwd_mem_result(alu_result_pre_mem),
+		//.rd_ex(id_rd),
+		//.rd_wb_pre(ex_rd),
+		//.reg_write_ex(id_reg_write),
+		//.reg_write_mem_fwd(ex_reg_write)
 
     	);
 
@@ -153,7 +162,10 @@ module riscv_top #(
         	.mem_to_reg_out(ex_mem_to_reg),
         	.reg_write_out (ex_reg_write),
         	.branch_out    (ex_branch),
-        	.rd_out        (ex_rd)
+        	.rd_out        (ex_rd),
+		.flush		(pc_src)
+
+		//.alu_result_pre 	(alu_result_pre_ex)
     	);
 
     	mem_stage #(
@@ -180,6 +192,8 @@ module riscv_top #(
         	.reg_write_out (mem_reg_write),
         	.pc_src        (pc_src),
         	.pc_branch_out (pc_branch)
+
+		//.alu_result_pre 	(alu_result_pre_mem)
     	);
 
     	wb_stage #(
@@ -206,10 +220,17 @@ module riscv_top #(
 
 	hazard_detection_unit #(.REG_ADDR(REG_ADDR))
 	HDU (
-		.rs1_id(id_rs1),
-		.rs2_id(id_rs2),
-		.rd_ex(ex_rd),
-		.mem_write_ex(ex_mem_write),
+		.rs1_id(id_rs1_wire),
+		.rs2_id(id_rs2_wire),
+		.branch_id (id_branch_wire),
+
+		.reg_write_ex(id_reg_write),
+		.mem_read_ex(id_mem_read),
+		.rd_ex(id_rd),
+
+		.reg_write_mem(ex_reg_write),
+		.rd_mem(ex_rd),
+		
 		.stall(stall)
 	);
 
